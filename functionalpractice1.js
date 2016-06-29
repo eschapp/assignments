@@ -226,3 +226,5 @@ console.log(results[0])
 console.log(results[2].fullname)
 console.assert(results[0].fullname === "Jack White")
 console.assert(results[2].fullname === "John Smith")
+
+
