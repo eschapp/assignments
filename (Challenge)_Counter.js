@@ -11,7 +11,7 @@ function Counter(){
     // ...
 }
 
-Counter.prototype.inc = function(){}
+Counter.prototype.incr = function(){}
 // Counter.prototype...
 
 var c = new Counter();
