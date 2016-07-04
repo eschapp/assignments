@@ -7,17 +7,46 @@
 // comparisons.
 
 
+function Counter(){this.count=0;}
+
+Counter.prototype.inc=function(){
+  return this.count++;};
+
+Counter.prototype.toString = function() {
+ return this.count;
+};
+
+/********** Commented Code **********************
+
 function Counter(){
-    // ...
+  // Constructors cannot return things
+  // they can only set the initial
+  // conditions when a new object is
+  // created.
+  this.count = 0; // starts at zero
 }
 
-Counter.prototype.incr = function(){}
-// Counter.prototype...
+Counter.prototype.inc = function(){
+  // When inc is called, we increase
+  // the object's (this) counter variable
+  // by one.
+  return this.count++;
+};
 
+Counter.prototype.toString = function() {
+ return this.count;
+};
+
+*************/
+
+// Declare a new instance of an object
+// and sets the variable c, to that
+// instance.
 var c = new Counter();
-c.incr(); // counter is now at 1
-console.assert(c+1, 2)
-console.assert(c > 1 === false)
-console.assert(c > 0)
-console.assert(c == 1)
-Math.sqrt(c); // 1
+c.inc(); // counter is now at 1
+console.log('c is ' + c);
+console.assert(c+1 === 2);
+console.assert(c > 1 === false);
+console.assert(c > 0);
+console.assert(c == 1);
+console.log(Math.sqrt(c)); // 1
