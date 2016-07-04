@@ -55,10 +55,9 @@ console.assert(window.whatIsThis('hello', 'world') === FILL_ME_IN)
 console.assert(inAnObject.test1('face', 'book') === FILL_ME_IN)
 // Once you've figured out what the output is, answer here in a comment: Why is this so?
 
-console.assert(inAnObject.anotherObject.test1('twitter', 'book') === FILL_ME_IN)
-// Once you've figured out what the output is, answer here in a comment: Why is this so?
-
-console.assert(inAnObject.anotherObject.test2('twitter', 'book') === FILL_ME_IN)
+// ***Results in Error
+//
+// console.assert(inAnObject.anotherObject.test2('twitter', 'book') === FILL_ME_IN)
 // Once you've figured out what the output is, answer here in a comment: Why is this so?
 
 console.assert(whatIsThis.call() === FILL_ME_IN)
