@@ -7,3 +7,14 @@
 // When `Robot.new()` is called it should return a new instance with the prototype set to Robot e.g.:
 // ---
 // var robby = Robot.new();
+
+
+/* static method */
+Robot.new = function(){
+  return new Robot();
+}
+
+/* instance method */
+Robot.prototype.new = function () {
+  return new Robot();
+};
