@@ -46,65 +46,77 @@ var confusing = {
  * THE PROBLEMS
  */
 
-console.assert(whatIsThis('hello', 'world') === FILL_ME_IN)
+console.assert(whatIsThis('hello', 'world') === '[object global],hello,world');
 // Once you've figured out what the output is, answer here in a comment: Why is this so?
+//    this here refers to the context of the function, which for me is global, but I would guess that if I were to run this on jsbin/chrome it would be window.
 
-console.assert(window.whatIsThis('hello', 'world') === FILL_ME_IN)
+// console.assert(window.whatIsThis('hello', 'world') === [object window],hello,world)
 // Once you've figured out what the output is, answer here in a comment: Why is this so?
+//    Here we've specified that the context of this is window. I think this is the same as the first example, but expcit. So if it were a different context like here.wIT it would be something like '[object here],hello,world'.
 
-console.assert(inAnObject.test1('face', 'book') === FILL_ME_IN)
+console.assert(inAnObject.test1('face', 'book') === '[object Object],face,book')
 // Once you've figured out what the output is, answer here in a comment: Why is this so?
+//    this now referes to inAnObject which is an object context.
 
 // ***Results in Error
-//
 // console.assert(inAnObject.anotherObject.test2('twitter', 'book') === FILL_ME_IN)
 // Once you've figured out what the output is, answer here in a comment: Why is this so?
 
-console.assert(whatIsThis.call() === FILL_ME_IN)
+console.assert(whatIsThis.call() === '[object global],,')
+// Once you've figured out what the output is, answer here in a comment: Why is this so?
+//    We haven't passed anything into our function so the output is empty.
+
+console.assert(whatIsThis.call(trickyTricky) === '[object Object],,')
+// Once you've figured out what the output is, answer here in a comment: Why is this so?
+//    this referes to the trickytricky object, but runs nothing through the a/b parameters.
+
+console.assert(whatIsThis.call(trickyTricky, 'nice', 'job') === '[object Object],nice,job')
+// Once you've figured out what the output is, answer here in a comment: Why is this so?
+//    Same as the one prior but here we have called trickyTricky and passed two paramaters, so whatIsThis joins the three as context,a,b.
+
+console.assert(whatIsThis.call(confusing) === '[object Object],,')
 // Once you've figured out what the output is, answer here in a comment: Why is this so?
 
-console.assert(whatIsThis.call(trickyTricky) === FILL_ME_IN)
+console.assert(whatIsThis.call(confusing, 'hello') === '[object Object],hello,')
 // Once you've figured out what the output is, answer here in a comment: Why is this so?
 
-console.assert(whatIsThis.call(trickyTricky, 'nice', 'job') === FILL_ME_IN)
+console.assert(whatIsThis.apply(trickyTricky) === '[object Object],,')
 // Once you've figured out what the output is, answer here in a comment: Why is this so?
 
-console.assert(whatIsThis.call(confusing) === FILL_ME_IN)
+console.assert(whatIsThis.apply(confusing, ['nice', 'job']) === '[object Object],nice,job')
 // Once you've figured out what the output is, answer here in a comment: Why is this so?
 
-console.assert(whatIsThis.call(confusing, 'hello') === FILL_ME_IN)
+//console.assert(whatIsThis.apply(confusing, 'nice', 'job') === FILL_ME_IN)
+// Once you've figured out what the output is, answer here in a comment: Why is this so?
+// There isn't an array here for apply to use so I believe this should throw an error.
+
+
+console.log(inAFunction('what will', 'happen?'));
+console.assert(inAFunction('what will', 'happen?') === undefined)
 // Once you've figured out what the output is, answer here in a comment: Why is this so?
 
-console.assert(whatIsThis.apply(trickyTricky) === FILL_ME_IN)
-// Once you've figured out what the output is, answer here in a comment: Why is this so?
-
-console.assert(whatIsThis.apply(confusing, ['nice', 'job']) === FILL_ME_IN)
-// Once you've figured out what the output is, answer here in a comment: Why is this so?
-
-console.assert(whatIsThis.apply(confusing, 'nice', 'job') === FILL_ME_IN)
-// Once you've figured out what the output is, answer here in a comment: Why is this so?
-
-console.assert(inAFunction('what will', 'happen?') === FILL_ME_IN)
-// Once you've figured out what the output is, answer here in a comment: Why is this so?
 
 try{
-    console.assert(inAFunction.test3('A', 'B') === FILL_ME_IN)
+    console.assert(inAFunction.test3('A', 'B') === '');
 } catch(e){
     log(e)
 }
 // Once you've figured out what the output/result is, answer here in a comment: Why is this so?
+//This should result in an error because inAFunction.test3 is not a function.
 
 var newObject = new inAFunction('what will', 'happen?')
-console.assert(newObject.name === FILL_ME_IN)
+console.assert(newObject.name === 'Sally')
 // Once you've figured out what the output is, answer here in a comment: Why is this so?
+// In this case this.name is bound to Sally.
 
 var newObject2 = new inAFunction('what will', 'happen?')
-console.assert(newObject2.test3('C', 'D') === FILL_ME_IN)
+console.assert(newObject2.test3('C', 'D') === '[object Object],C,D')
 // Once you've figured out what the output is, answer here in a comment: Why is this so?
 
-console.assert(inAnObject.test1.call(trickyTricky, 'face', 'book') === FILL_ME_IN)
+console.assert(inAnObject.test1.call(trickyTricky, 'face', 'book') === '[object Object],face,book')
 // Once you've figured out what the output is, answer here in a comment: Why is this so?
 
-console.assert(inAnObject.anotherObject.test2.apply(confusing, ['foo', 'bar']) === FILL_ME_IN)
+
+console.assert(inAnObject.anotherObject.test2.apply(confusing, ['foo', 'bar']) === '[object Object],foo,bar')
 // Once you've figured out what the output is, answer here in a comment: Why is this so?
 
