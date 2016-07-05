@@ -76,9 +76,11 @@ console.assert(whatIsThis.call(trickyTricky, 'nice', 'job') === '[object Object]
 
 console.assert(whatIsThis.call(confusing) === '[object Object],,')
 // Once you've figured out what the output is, answer here in a comment: Why is this so?
+//    Passing an object with you paramaters on whatIsThis.
 
 console.assert(whatIsThis.call(confusing, 'hello') === '[object Object],hello,')
 // Once you've figured out what the output is, answer here in a comment: Why is this so?
+//    Passing an object with only one paramater. I feel like I'm missing something in these problems because the answers aren't all that satifying. I suppose maybe should be listing the object this refers to?
 
 console.assert(whatIsThis.apply(trickyTricky) === '[object Object],,')
 // Once you've figured out what the output is, answer here in a comment: Why is this so?
@@ -89,6 +91,7 @@ console.assert(whatIsThis.apply(confusing, ['nice', 'job']) === '[object Object]
 console.assert(whatIsThis.apply(confusing, 'nice', 'job') === FILL_ME_IN)
 // Once you've figured out what the output is, answer here in a comment: Why is this so?
 // There isn't an array here for apply to use so I believe this should throw an error.
+//    Here nice job isn't an array so the paramater's aren't passed and I believe this results in an error.
 
 console.assert(inAFunction('what will', 'happen?') === undefined)
 // Once you've figured out what the output is, answer here in a comment: Why is this so?

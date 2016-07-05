@@ -7,9 +7,10 @@ function paginationText(pageNumber, pageSize, totalProducts) {
   var pageStart = (pageSize * (pageNumber - 1)) + 1;
   var counter = pageStart + (pageSize -1);
 
-  if ((pageNumber === 1) && (pageSize < totalProducts)) {
-    counter = pageSize;
-  }
+  // I can't think of a case where this is necessary atm but just in case.
+  // if ((pageNumber === 1) && (pageSize < totalProducts)) {
+  //   counter = pageSize;
+  // }
 
   if ((pageSize > totalProducts)){
    counter = totalProducts;
@@ -20,15 +21,23 @@ function paginationText(pageNumber, pageSize, totalProducts) {
   }
 
 
-  var pagination = "Showing " + pageStart + " to " + counter + " of " + totalProducts + " Products.";
+  var pagination = ("Showing " + pageStart + " to " + counter + " of " + totalProducts + " Products.");
 //console.log(pagination);
-  return
+  return pagination;
 }
 
-
+console.log(paginationText(1, 10, 30));
+console.log(paginationText(2, 10, 30));
+console.log(paginationText(3, 10, 30));
+console.log(paginationText(1, 10, 26));
+console.log(paginationText(2, 10, 26));
+console.log(paginationText(3, 10, 26));
+console.log(paginationText(1, 10,  8));
 console.assert(paginationText(1, 10, 30) === 'Showing 1 to 10 of 30 Products.')
 console.assert(paginationText(2, 10, 30) === 'Showing 11 to 20 of 30 Products.')
 console.assert(paginationText(3, 10, 30) === 'Showing 21 to 30 of 30 Products.')
+console.assert(paginationText(1, 10, 26) === 'Showing 1 to 10 of 26 Products.')
+console.assert(paginationText(2, 10, 26) === 'Showing 11 to 20 of 26 Products.')
 console.assert(paginationText(3, 10, 26) === 'Showing 21 to 26 of 26 Products.')
 console.assert(paginationText(1, 10,  8) === 'Showing 1 to 8 of 8 Products.')
 
