@@ -86,15 +86,12 @@ console.assert(whatIsThis.apply(trickyTricky) === '[object Object],,')
 console.assert(whatIsThis.apply(confusing, ['nice', 'job']) === '[object Object],nice,job')
 // Once you've figured out what the output is, answer here in a comment: Why is this so?
 
-//console.assert(whatIsThis.apply(confusing, 'nice', 'job') === FILL_ME_IN)
+console.assert(whatIsThis.apply(confusing, 'nice', 'job') === FILL_ME_IN)
 // Once you've figured out what the output is, answer here in a comment: Why is this so?
 // There isn't an array here for apply to use so I believe this should throw an error.
 
-
-console.log(inAFunction('what will', 'happen?'));
 console.assert(inAFunction('what will', 'happen?') === undefined)
 // Once you've figured out what the output is, answer here in a comment: Why is this so?
-
 
 try{
     console.assert(inAFunction.test3('A', 'B') === '');
