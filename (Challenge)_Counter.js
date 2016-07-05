@@ -45,8 +45,8 @@ Counter.prototype.toString = function() {
 var c = new Counter();
 c.inc(); // counter is now at 1
 console.log('c is ' + c);
-console.assert(c+1 === 2);
-console.assert(c > 1 === false);
+console.assert(c+1, 2);
+console.assert(c > 0 === true);
 console.assert(c > 0);
 console.assert(c == 1);
 console.log(Math.sqrt(c)); // 1
